@@ -110,3 +110,7 @@ Hosted on [Netlify](https://www.netlify.com/) at [tgif-rewind.netlify.app](https
 ## 🙏 Credits
 
 Originally prototyped with [Lovable](https://lovable.dev); now developed independently. Show metadata via [TMDB](https://www.themoviedb.org/).
+
+## 📄 License
+
+[MIT](./LICENSE) © Ken Ortiz

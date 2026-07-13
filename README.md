@@ -1,8 +1,10 @@
-# 📺 TGIF Nostalgia
+# 📺 TGIF Rewind
 
 > *"It's Friday night — vibes only."*
 
 A retro time-machine for ABC's TGIF Friday-night lineup (1989–2000). Pick any Friday in the era, see the 8:00–10:00 PM block exactly as it aired, watch theme songs, and play period-accurate commercials between shows.
+
+**🔴 Live:** [tgif-rewind.netlify.app](https://tgif-rewind.netlify.app)
 
 ---
 
@@ -91,6 +93,14 @@ Never hardcode colors in components — always use the tokens.
 - **New show?** Add an entry to `src/data/shows.ts` with a verified YouTube theme ID, then add a poster to `src/assets/posters/` and register it in `src/data/posters.ts`.
 - **New Friday lineup?** Add a curated entry to `src/data/schedule.ts` (otherwise it falls back to the season's default lineup from `seasons.ts`).
 - **New commercial?** Add a `{ year, youtubeId, title }` entry to `src/data/commercials.ts`.
+
+## 🌐 Deployment
+
+Hosted on [Netlify](https://www.netlify.com/) at [tgif-rewind.netlify.app](https://tgif-rewind.netlify.app), auto-deploying on every push to `main`.
+
+- Build config lives in [`netlify.toml`](./netlify.toml), including an SPA redirect so deep links like `/friday/1994-09-23` resolve to `index.html` for client-side routing.
+- The three `VITE_SUPABASE_*` values from `.env.example` are set as environment variables in the Netlify site settings.
+- Supabase edge functions (`get-show-info`, `get-episode-by-date`) run on Supabase, not Netlify, and are called from the client at runtime.
 
 ## ⚠️ Out of Scope
 
